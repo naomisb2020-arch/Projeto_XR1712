@@ -215,7 +215,7 @@
             cursor: pointer;
         }
 
-        /* EQUIPE (FOTO GRUPO + 7 INTEGRANTES) */
+        /* EQUIPE */
         .team-group { text-align: center; }
 
         .group-img-wrapper {
@@ -352,7 +352,7 @@
             </div>
         </div>
 
-        <!-- DATABOOK (3 DIVISÕES RESTAURADAS) -->
+        <!-- DATABOOK -->
         <h2 class="section-title">Databook</h2>
         <div class="doc-grid">
             
@@ -400,13 +400,13 @@
 
         </div>
 
-        <!-- EQUIPE (7 INTEGRANTES) -->
+        <!-- EQUIPE DE DESENVOLVIMENTO -->
         <h2 class="section-title">Equipe de Desenvolvimento</h2>
         
         <div class="card team-group">
             <label for="groupPhotoInput">
                 <div class="group-img-wrapper">
-                    <img id="groupImgDisplay" src="midia/foto-grupo.jpg" alt="Foto da Equipe">
+                    <img id="groupImgDisplay" src="midia/foto-grupo.png" alt="Foto da Equipe">
                 </div>
             </label>
             <input type="file" id="groupPhotoInput" accept="image/*">
@@ -417,11 +417,10 @@
         </div>
 
         <div class="team-grid">
-            <!-- Integrante 1 -->
             <div class="team-member">
                 <label for="memberInput1">
                     <div class="member-img-wrapper">
-                        <img id="img1" src="midia/foto1.jpg" alt="Foto 1">
+                        <img id="img1" src="midia/foto1.png" alt="Foto 1">
                     </div>
                 </label>
                 <input type="file" id="memberInput1" accept="image/*" onchange="loadMemberImg(event, 'img1', 0)">
@@ -429,11 +428,10 @@
                 <p class="member-role" contenteditable="true" id="role1">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 2 -->
             <div class="team-member">
                 <label for="memberInput2">
                     <div class="member-img-wrapper">
-                        <img id="img2" src="midia/foto2.jpg" alt="Foto 2">
+                        <img id="img2" src="midia/foto2.png" alt="Foto 2">
                     </div>
                 </label>
                 <input type="file" id="memberInput2" accept="image/*" onchange="loadMemberImg(event, 'img2', 1)">
@@ -441,11 +439,10 @@
                 <p class="member-role" contenteditable="true" id="role2">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 3 -->
             <div class="team-member">
                 <label for="memberInput3">
                     <div class="member-img-wrapper">
-                        <img id="img3" src="midia/foto3.jpg" alt="Foto 3">
+                        <img id="img3" src="midia/foto3.png" alt="Foto 3">
                     </div>
                 </label>
                 <input type="file" id="memberInput3" accept="image/*" onchange="loadMemberImg(event, 'img3', 2)">
@@ -453,11 +450,10 @@
                 <p class="member-role" contenteditable="true" id="role3">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 4 -->
             <div class="team-member">
                 <label for="memberInput4">
                     <div class="member-img-wrapper">
-                        <img id="img4" src="midia/foto4.jpg" alt="Foto 4">
+                        <img id="img4" src="midia/foto4.png" alt="Foto 4">
                     </div>
                 </label>
                 <input type="file" id="memberInput4" accept="image/*" onchange="loadMemberImg(event, 'img4', 3)">
@@ -465,11 +461,10 @@
                 <p class="member-role" contenteditable="true" id="role4">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 5 -->
             <div class="team-member">
                 <label for="memberInput5">
                     <div class="member-img-wrapper">
-                        <img id="img5" src="midia/foto5.jpg" alt="Foto 5">
+                        <img id="img5" src="midia/foto5.png" alt="Foto 5">
                     </div>
                 </label>
                 <input type="file" id="memberInput5" accept="image/*" onchange="loadMemberImg(event, 'img5', 4)">
@@ -477,11 +472,10 @@
                 <p class="member-role" contenteditable="true" id="role5">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 6 -->
             <div class="team-member">
                 <label for="memberInput6">
                     <div class="member-img-wrapper">
-                        <img id="img6" src="midia/foto6.jpg" alt="Foto 6">
+                        <img id="img6" src="midia/foto6.png" alt="Foto 6">
                     </div>
                 </label>
                 <input type="file" id="memberInput6" accept="image/*" onchange="loadMemberImg(event, 'img6', 5)">
@@ -489,11 +483,10 @@
                 <p class="member-role" contenteditable="true" id="role6">Função / Cargo</p>
             </div>
 
-            <!-- Integrante 7 -->
             <div class="team-member">
                 <label for="memberInput7">
                     <div class="member-img-wrapper">
-                        <img id="img7" src="midia/foto7.jpg" alt="Foto 7">
+                        <img id="img7" src="midia/foto7.png" alt="Foto 7">
                     </div>
                 </label>
                 <input type="file" id="memberInput7" accept="image/*" onchange="loadMemberImg(event, 'img7', 6)">
@@ -510,7 +503,6 @@
     </footer>
 
     <script>
-        // ESTADO GLOBAL DE ARMAZENAMENTO PERMANENTE
         const STORAGE_KEY = 'XR1712_PERSISTENT_STATE';
         let appState = {
             ip: '',
@@ -524,7 +516,6 @@
             databook: { 'list-cat-1': [], 'list-cat-2': [], 'list-cat-3': [] }
         };
 
-        // CONTROLE DOS PERFIS DE ACESSO
         const urlParams = new URLSearchParams(window.location.search);
         const perfil = urlParams.get('acesso');
 
@@ -541,7 +532,6 @@
             document.querySelectorAll('[contenteditable]').forEach(el => el.setAttribute('contenteditable', 'false'));
         }
 
-        // SALVAMENTO PERMANENTE (LOCALSTORAGE)
         function saveState() {
             appState.heroTitle = document.getElementById('heroTitle').innerText;
             appState.heroSub = document.getElementById('heroSub').innerText;
@@ -553,7 +543,6 @@
                 appState.members[i].role = document.getElementById(`role${i+1}`).innerText;
             }
 
-            // Salva listas do Databook
             ['list-cat-1', 'list-cat-2', 'list-cat-3'].forEach(catId => {
                 const items = [];
                 document.querySelectorAll(`#${catId} .doc-item`).forEach(li => {
@@ -591,7 +580,6 @@
                     if (appState.members[i].img) document.getElementById(`img${i+1}`).src = appState.members[i].img;
                 }
 
-                // Carrega Databook salvo
                 ['list-cat-1', 'list-cat-2', 'list-cat-3'].forEach(catId => {
                     if (appState.databook[catId] && appState.databook[catId].length > 0) {
                         const ul = document.getElementById(catId);
@@ -603,7 +591,6 @@
             } catch (e) { console.error("Erro ao carregar dados salvos:", e); }
         }
 
-        // LÓGICA DO SUPERVISÓRIO / IP
         function updateIhmUrl(shouldSave = true) {
             const input = document.getElementById('ihmIpInput');
             const iframe = document.getElementById('ihmIframe');
@@ -621,7 +608,6 @@
             if (shouldSave) saveState();
         }
 
-        // UPLOAD COM SALVAMENTO DE MÍDIA (BASE64)
         document.getElementById('videoInput').addEventListener('change', function(e) {
             if (e.target.files[0]) {
                 const reader = new FileReader();
@@ -658,7 +644,6 @@
             }
         }
 
-        // DATABOOK DINÂMICO E PERSISTENTE
         function renderDocItem(listId, title, url) {
             const ul = document.getElementById(listId);
             const li = document.createElement('li');
@@ -697,12 +682,10 @@
             saveState();
         }
 
-        // MONITORAR EDIÇÃO DE TEXTO
         document.querySelectorAll('[contenteditable]').forEach(el => {
             el.addEventListener('blur', saveState);
         });
 
-        // CARREGA O ESTADO AO ABRIR
         window.addEventListener('DOMContentLoaded', loadState);
     </script>
 </body>
