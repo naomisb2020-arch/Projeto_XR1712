@@ -296,18 +296,19 @@
 
         input[type="file"] { display: none; }
 
-        /* REGRAS DE PERMISSÃO DE ACESSO */
+       /* REGRAS DE PERMISSÃO DE ACESSO */
         body:not(.mode-admin):not(.mode-time) .ip-control-container,
         body:not(.mode-admin) .upload-btn-video,
         body:not(.mode-admin) .btn-doc-action,
-        body:not(.mode-admin) .btn-add-doc,
-        body:not(.mode-admin) label[for^="memberInput"],
-        body:not(.mode-admin) label[for="groupPhotoInput"] {
+        body:not(.mode-admin) .btn-add-doc {
             display: none !important;
         }
 
-        body.mode-time .ip-control-container {
-            display: flex !important;
+        /* Mantém as fotos visíveis para todos, mas bloqueia o clique para não-admins */
+        body:not(.mode-admin) label[for^="memberInput"],
+        body:not(.mode-admin) label[for="groupPhotoInput"] {
+            pointer-events: none;
+            cursor: default;
         }
     </style>
 </head>
